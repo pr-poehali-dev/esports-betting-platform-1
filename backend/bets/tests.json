@@ -1,0 +1,25 @@
+{
+  "tests": [
+    {
+      "name": "CORS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "List matches public",
+      "method": "GET",
+      "path": "/?action=matches",
+      "expectedStatus": 200,
+      "expectedBody": {"matches": "array"},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Place bet requires auth",
+      "method": "POST",
+      "path": "/?action=place",
+      "body": {"match_id": 1, "pick": 1, "amount": 100},
+      "expectedStatus": 401
+    }
+  ]
+}

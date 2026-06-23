@@ -1,0 +1,17 @@
+{
+  "tests": [
+    {
+      "name": "CORS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Login with wrong creds",
+      "method": "POST",
+      "path": "/?action=login",
+      "body": {"email": "nobody@test.com", "password": "wrongpass"},
+      "expectedStatus": 401
+    }
+  ]
+}
